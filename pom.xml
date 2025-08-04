@@ -12,6 +12,7 @@
     <modules>
         <module>sqlserver</module>
         <module>stream-common</module>
+        <module>jiamjiem</module>
     </modules>
 
     <properties>
