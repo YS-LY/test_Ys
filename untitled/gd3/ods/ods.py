@@ -59,51 +59,7 @@ spark.read \
     .option("path", "hdfs://cdh01:8020/bigdata_warehouse/gd3/ods_product_add") \
     .saveAsTable("gd3.ods_product_add")
 
-# 3. 商品交易表（ods_商品交易）
-# ods_product_transaction_schema = StructType([
-#     StructField("order_id", StringType(), nullable=False),  # 订单ID
-#     StructField("user_id", StringType(), nullable=True),   # 用户ID
-#     StructField("product_id", StringType(), nullable=True),   # 商品ID
-#     StructField("category_id", StringType(), nullable=True),  # 叶子类目ID
-#     StructField("product_price", DecimalType(10, 2), nullable=True),  # 商品单价
-#     StructField("buy_count", ByteType(), nullable=True),  # 拍下件数
-#     StructField("buy_amount", DecimalType(10, 2), nullable=True),  # 拍下金额
-#     StructField("pay_status", StringType(), nullable=True),  # 支付状态(未支付/已支付)
-#     StructField("pay_time", TimestampType(), nullable=True),  # 支付时间
-#     StructField("pay_amount", DecimalType(10, 2), nullable=True),  # 支付金额
-#     StructField("terminal", StringType(), nullable=True),  # 终端类型(PC/无线)
-#     StructField("create_time", TimestampType(), nullable=True)  # 订单创建时间
-# ])
-#
-# spark.read \
-#     .schema(ods_product_transaction_schema) \
-#     .json("D:/2211A/workspace/工单/第三周/gd1/sj/ods_商品交易.json") \
-#     .withColumn("order_date", date_format(col("create_time"), "yyyy-MM-dd")) \
-#     .write \
-#     .mode("overwrite") \
-#     .partitionBy("order_date") \
-#     .option("path", "hdfs://cdh01:8020/bigdata_warehouse/gd3/ods_product_pay") \
-#     .saveAsTable("gd3.ods_product_pay")
-#
-# # 4. 商品基础信息表（ods_商品基础信息）
-# ods_product_basic_info_schema = StructType([
-#     StructField("product_id", StringType(), nullable=False),  # 商品ID
-#     StructField("product_name", StringType(), nullable=True),  # 商品名称
-#     StructField("category_id", StringType(), nullable=True),  # 叶子类目ID
-#     StructField("category_name", StringType(), nullable=True),  # 叶子类目名称
-#     StructField("product_price", DecimalType(10, 2), nullable=True),  # 商品定价
-#     StructField("update_time", TimestampType(), nullable=True)  # 信息更新时间
-# ])
-#
-# spark.read \
-#     .schema(ods_product_basic_info_schema) \
-#     .json("D:/2211A/workspace/工单/第三周/gd1/sj/ods_商品基础信息.json") \
-#     .withColumn("update_date", date_format(col("update_time"), "yyyy-MM-dd")) \
-#     .write \
-#     .mode("overwrite") \
-#     .partitionBy("update_date") \
-#     .option("path", "hdfs://cdh01:8020/bigdata_warehouse/gd3/ods_product") \
-#     .saveAsTable("gd3.ods_product")
+
 
 # 停止SparkSession
 spark.stop()
